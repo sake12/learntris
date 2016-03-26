@@ -19,6 +19,8 @@ def main():
             board = Board()
         elif code == "?s":
             print(board.get_score())
+        elif code == "?n":
+            print(board.get_cleared_lines())
         else:
             print("Wrong code!")
 

@@ -3,6 +3,7 @@ class Board:
     def __init__(self):
         self._board = [['' for _ in range(10)] for _ in range(22)]
         self._score = 0
+        self._cleared_lines = 0
 
     def print_board(self):
         """ Show board on the screen """
@@ -31,3 +32,7 @@ class Board:
     def get_score(self):
         """ Return current score """
         return self._score
+
+    def get_cleared_lines(self):
+        """ Return how many lines have been cleared """
+        return self._cleared_lines
