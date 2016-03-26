@@ -15,6 +15,8 @@ def main():
             for a in range(22):
                 inp.append(input())
             board.set_board(inp)
+        elif code == "c":
+            board = Board()
         else:
             print("Wrong code!")
 
