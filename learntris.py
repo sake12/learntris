@@ -21,6 +21,8 @@ def main():
             print(board.get_score())
         elif code == "?n":
             print(board.get_cleared_lines())
+        elif code == "s":
+            board.run_one_step()
         else:
             print("Wrong code!")
 
