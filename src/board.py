@@ -12,3 +12,14 @@ class Board:
                 else:
                     print(b + " ", end="")
             print("")
+
+    def set_board(self, stuff):
+        """ Fill board with given data """
+        row = 0
+        column = 0
+        for a in stuff:
+            for b in a.split(" "):
+                self._board[row][column] = b
+                column += 1
+            column = 0
+            row += 1

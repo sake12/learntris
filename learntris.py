@@ -10,6 +10,11 @@ def main():
             exit()
         elif code == "p":
             board.print_board()
+        elif code == "g":
+            inp = []
+            for a in range(22):
+                inp.append(input())
+            board.set_board(inp)
         else:
             print("Wrong code!")
 
