@@ -17,6 +17,8 @@ def main():
             board.set_board(inp)
         elif code == "c":
             board = Board()
+        elif code == "?s":
+            print(board.get_score())
         else:
             print("Wrong code!")
 

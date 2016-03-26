@@ -2,6 +2,7 @@ class Board:
     """ Board """
     def __init__(self):
         self._board = [['' for _ in range(10)] for _ in range(22)]
+        self._score = 0
 
     def print_board(self):
         """ Show board on the screen """
@@ -23,3 +24,10 @@ class Board:
                 column += 1
             column = 0
             row += 1
+
+    def clear(self):
+        self._board = [['' for _ in range(10)] for _ in range(22)]
+
+    def get_score(self):
+        """ Return current score """
+        return self._score
