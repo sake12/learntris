@@ -6,6 +6,7 @@ def main():
     board = Board()
     while True:
         code = input()
+
         if code == "q":
             exit()
         elif code == "p":
@@ -23,8 +24,12 @@ def main():
             print(board.get_cleared_lines())
         elif code == "s":
             board.run_one_step()
+        elif str.isupper(code):
+            board.set_tetramino(code)
+        elif code == "t":
+            board.print_tetramino()
         else:
-            print("Wrong code!")
+            raise ValueError("Wrong code!")
 
 if __name__ == '__main__':
     main()

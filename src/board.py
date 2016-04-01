@@ -1,17 +1,18 @@
+import src.tetramino as tetra
+
+
 class Board:
     """ Board """
     def __init__(self):
         self._board = [['.' for _ in range(10)] for _ in range(22)]
         self._score = 0
         self._cleared_lines = 0
+        self._active_tetramino = tetra.Tetramino()
 
     def print_board(self):
         """ Show board on the screen """
         for a in self._board:
             for b in a:
-                #if b == "":
-                #    print(". ", end="")
-                #else:
                 print(b + " ", end="")
             print("")
 
@@ -44,3 +45,14 @@ class Board:
                 self._board[row] = ["."] * 10
                 self._cleared_lines += 1
                 self._score += 100
+
+    def set_tetramino(self, tetramino):
+        """ Set active tetramino """
+        if tetramino == "I":
+            self._active_tetramino = tetra.TetraminoI()
+        else:
+            raise ValueError("Wrong tetramino code!")
+
+    def print_tetramino(self):
+        """ Print active tetramino """
+        self._active_tetramino.show_tetramino()
