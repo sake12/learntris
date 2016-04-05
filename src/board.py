@@ -50,8 +50,20 @@ class Board:
         """ Set active tetramino """
         if tetramino == "I":
             self._active_tetramino = tetra.TetraminoI()
+        elif tetramino == "O":
+            self._active_tetramino = tetra.TetraminoO()
+        elif tetramino == "Z":
+            self._active_tetramino = tetra.TetraminoZ()
+        elif tetramino == "S":
+            self._active_tetramino = tetra.TetraminoS()
+        elif tetramino == "J":
+            self._active_tetramino = tetra.TetraminoJ()
+        elif tetramino == "L":
+            self._active_tetramino = tetra.TetraminoL()
+        elif tetramino == "T":
+            self._active_tetramino = tetra.TetraminoT()
         else:
-            raise ValueError("Wrong tetramino code!")
+            print("Wrong tetramino code!")
 
     def print_tetramino(self):
         """ Print active tetramino """
