@@ -8,9 +8,7 @@ def main():
         for code in input().split(" "):
             if code == "q":
                 exit()
-            elif code == "p":
-                board.print_board()
-            elif code == "P":
+            elif str.lower(code) == "p":
                 board.print_board()
             elif code == "g":
                 inp = []
@@ -18,7 +16,7 @@ def main():
                     inp.append(input())
                 board.set_board(inp)
             elif code == "c":
-                board = Board()
+                board.clear()
             elif code == "?s":
                 print(board.get_score())
             elif code == "?n":

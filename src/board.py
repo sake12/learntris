@@ -10,26 +10,41 @@ class Board:
         self._cleared_lines = 0
         self._active_tetramino = tetra.Tetramino()
 
+    def __add_tetramino_to_board(self):
+        board = self._board
+        tetramino = self._active_tetramino.get_current()
+        pos_row, pos_column = self._active_tetramino.get_position()
+
+        for row, pos in enumerate(tetramino):
+            for column, sign in enumerate(pos):
+                board[row + pos_row][column + pos_column] = str.upper(sign)
+
+        return board
+
     def print_board(self):
         """ Show board on the screen """
-        for a in self._board:
-            for b in a:
-                print(b + " ", end="")
+        board = self._board
+        tetramino = self._active_tetramino.get_current()
+
+        if tetramino:
+            board = self.__add_tetramino_to_board()
+
+        for row in board:
+            for column in row:
+                print(column + " ", end="")
             print("")
 
-    def set_board(self, stuff):
+    def set_board(self, data):
         """ Fill board with given data """
-        row = 0
-        column = 0
-        for a in stuff:
-            for b in a.split(" "):
-                self._board[row][column] = b
-                column += 1
-            column = 0
-            row += 1
+        for row, line in enumerate(data):
+            for column, sign in enumerate(line.split(" ")):
+                self._board[row][column] = sign
 
     def clear(self):
+        """ Clear board, score and lines """
         self._board = [['.' for _ in range(10)] for _ in range(22)]
+        self._score = 0
+        self._cleared_lines = 0
 
     def get_score(self):
         """ Return current score """
@@ -41,9 +56,9 @@ class Board:
 
     def run_one_step(self):
         """ Run one step of the game """
-        for row in range(len(self._board)):
-            if "." not in self._board[row]:
-                self._board[row] = ["."] * 10
+        for number, row in enumerate(self._board):
+            if "." not in row:
+                self._board[number] = ["."] * 10
                 self._cleared_lines += 1
                 self._score += 100
 
@@ -67,8 +82,12 @@ class Board:
             print("Wrong tetramino code!")
 
     def rotate_current(self):
+        """ Rotate active tetramino clockwise """
         self._active_tetramino.rotate()
 
     def print_tetramino(self):
         """ Print active tetramino """
-        self._active_tetramino.show_tetramino()
+        for row in self._active_tetramino.get_current():
+            for cell in row:
+                print(cell + " ", end="")
+            print("")
