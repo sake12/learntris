@@ -10,6 +10,8 @@ def main():
                 exit()
             elif code == "p":
                 board.print_board()
+            elif code == "P":
+                board.print_board()
             elif code == "g":
                 inp = []
                 for a in range(22):
@@ -27,8 +29,13 @@ def main():
                 board.set_tetramino(code)
             elif code == "t":
                 board.print_tetramino()
+            elif code == ")":
+                board.rotate_current()
+            elif code == ";":
+                print("")
             else:
                 print("Wrong code!")
+
 
 if __name__ == '__main__':
     main()

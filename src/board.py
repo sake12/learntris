@@ -3,6 +3,7 @@ import src.tetramino as tetra
 
 class Board:
     """ Board """
+
     def __init__(self):
         self._board = [['.' for _ in range(10)] for _ in range(22)]
         self._score = 0
@@ -39,7 +40,7 @@ class Board:
         return self._cleared_lines
 
     def run_one_step(self):
-        """ Return how many lines have been cleared """
+        """ Run one step of the game """
         for row in range(len(self._board)):
             if "." not in self._board[row]:
                 self._board[row] = ["."] * 10
@@ -64,6 +65,9 @@ class Board:
             self._active_tetramino = tetra.TetraminoT()
         else:
             print("Wrong tetramino code!")
+
+    def rotate_current(self):
+        self._active_tetramino.rotate()
 
     def print_tetramino(self):
         """ Print active tetramino """

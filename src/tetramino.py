@@ -1,87 +1,154 @@
 class Tetramino:
+    """ The tetramino """
+    tetramino = []
+    shapes = []
+    state = 0
+
     def show_tetramino(self):
-        pass
+        tetramino = self.shapes[self.state]
+        for a in tetramino:
+            for b in a:
+                print(b + " ", end="")
+            print("")
+
+    def rotate(self):
+        self.state = (self.state + 1) % len(self.shapes)
+        self.tetramino = self.shapes[self.state]
 
 
 class TetraminoI(Tetramino):
     """ The I tetramino """
-    def __init__(self):
-        self.tetramino = [["."] * 4, ["c"] * 4, ["."] * 4, ["."] * 4]
+    shapes = [
+        [[".", ".", ".", "."],
+         ["c", "c", "c", "c"],
+         [".", ".", ".", "."],
+         [".", ".", ".", "."]],
 
-    def show_tetramino(self):
-        for a in self.tetramino:
-            for b in a:
-                print(b + " ", end="")
-            print("")
+        [[".", ".", "c", "."],
+         [".", ".", "c", "."],
+         [".", ".", "c", "."],
+         [".", ".", "c", "."]],
+
+        [[".", ".", ".", "."],
+         [".", ".", ".", "."],
+         ["c", "c", "c", "c"],
+         [".", ".", ".", "."]],
+
+        [[".", "c", ".", "."],
+         [".", "c", ".", "."],
+         [".", "c", ".", "."],
+         [".", "c", ".", "."]]
+    ]
 
 
 class TetraminoO(Tetramino):
     """ The O tetramino """
-    def __init__(self):
-        self.tetramino = [["y"] * 2, ["y"] * 2]
-
-    def show_tetramino(self):
-        for a in self.tetramino:
-            for b in a:
-                print(b + " ", end="")
-            print("")
+    shapes = [
+        [["y", "y"],
+         ["y", "y"]]
+    ]
 
 
 class TetraminoZ(Tetramino):
     """ The Z tetramino """
-    def __init__(self):
-        self.tetramino = [["r", "r", "."], [".", "r", "r"], ["."] * 3]
+    shapes = [
+        [["r", "r", "."],
+         [".", "r", "r"],
+         [".", ".", "."]],
 
-    def show_tetramino(self):
-        for a in self.tetramino:
-            for b in a:
-                print(b + " ", end="")
-            print("")
+        [[".", ".", "r"],
+         [".", "r", "r"],
+         [".", "r", "."]],
+
+        [[".", ".", "."],
+         ["r", "r", "."],
+         [".", "r", "r"]],
+
+        [[".", "r", "."],
+         ["r", "r", "."],
+         ["r", ".", "."]]
+    ]
 
 
 class TetraminoS(Tetramino):
     """ The S tetramino """
-    def __init__(self):
-        self.tetramino = [[".", "g", "g"], ["g", "g", "."], ["."] * 3]
+    shapes = [
+        [[".", "g", "g"],
+         ["g", "g", "."],
+         [".", ".", "."]],
 
-    def show_tetramino(self):
-        for a in self.tetramino:
-            for b in a:
-                print(b + " ", end="")
-            print("")
+        [[".", "g", "."],
+         [".", "g", "g"],
+         [".", ".", "g"]],
+
+        [[".", ".", "."],
+         [".", "g", "g"],
+         ["g", "g", "."]],
+
+        [["g", ".", "."],
+         ["g", "g", "."],
+         [".", "g", "."]]
+    ]
 
 
 class TetraminoJ(Tetramino):
     """ The J tetramino """
-    def __init__(self):
-        self.tetramino = [["b", ".", "."], ["b"] * 3, ["."] * 3]
+    shapes = [
+        [["b", ".", "."],
+         ["b", "b", "b"],
+         [".", ".", "."]],
 
-    def show_tetramino(self):
-        for a in self.tetramino:
-            for b in a:
-                print(b + " ", end="")
-            print("")
+        [[".", "b", "b"],
+         [".", "b", "."],
+         [".", "b", "."]],
+
+        [[".", ".", "."],
+         ["b", "b", "b"],
+         [".", ".", "b"]],
+
+        [[".", "b", "."],
+         [".", "b", "."],
+         ["b", "b", "."]]
+    ]
 
 
 class TetraminoL(Tetramino):
     """ The L tetramino """
-    def __init__(self):
-        self.tetramino = [[".", ".", "o"], ["o"] * 3, ["."] * 3]
+    shapes = [
+        [[".", ".", "o"],
+         ["o", "o", "o"],
+         [".", ".", "."]],
 
-    def show_tetramino(self):
-        for a in self.tetramino:
-            for b in a:
-                print(b + " ", end="")
-            print("")
+        [[".", "o", "."],
+         [".", "o", "."],
+         [".", "o", "o"]],
+
+        [[".", ".", "."],
+         ["o", "o", "o"],
+         ["o", ".", "."]],
+
+        [["o", "o", "."],
+         [".", "o", "."],
+         [".", "o", "."]]
+    ]
 
 
 class TetraminoT(Tetramino):
     """ The T tetramino """
-    def __init__(self):
-        self.tetramino = [[".", "m", "."], ["m"] * 3, ["."] * 3]
+    shapes = [
+        [[".", "m", "."],
+         ["m", "m", "m"],
+         [".", ".", "."]],
 
-    def show_tetramino(self):
-        for a in self.tetramino:
-            for b in a:
-                print(b + " ", end="")
-            print("")
+        [[".", "m", "."],
+         [".", "m", "m"],
+         [".", "m", "."]],
+
+        [[".", ".", "."],
+         ["m", "m", "m"],
+         [".", "m", "."]],
+
+        [[".", "m", "."],
+         ["m", "m", "."],
+         [".", "m", "."]]
+    ]
